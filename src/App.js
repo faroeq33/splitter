@@ -2,26 +2,35 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="App bg-lightergrayishcyan">
+    <div className="App bg-lightergrayishcyan text-gray-600">
       <div className="container mx-auto max-w-[375px] px-4">
-        <ul className="uppercase">
-          <li>spli</li>
-          <li>tter</li>
+        <ul className="uppercase text-2xl text-verydarkcyan font-extrabold opacity-75">
+          <li>s p l i</li>
+          <li>t t e r</li>
         </ul>
-        <div className="flex bg-white  rounded-2xl">
-          Bill Select Tip % 5% 10% 15% 25% 50% Custom Number of People Tip
-          Amount / person Total / person Reset
-          <div class="attribution">
-            Challenge by{" "}
-            <a
-              href="https://www.frontendmentor.io?ref=challenge"
-              target="_blank"
-            >
-              Frontend Mentor
-            </a>
-            . Coded by <a href="#">Your Name Here</a>.
+        <div className="flex bg-white  rounded-2xl p-4">
+          <div className="grid grid-cols w-full">
+            <div className="text-left w-full text-">Bill </div>
+            <div className="p-3 text-2xl bg-gray-100 rounded-lg text-right text-verydarkcyan font-bold w-full">
+              <span className="text-gray-400 text-left">$ </span>
+              <span className="text-right">142.55</span>
+            </div>
+            <div>Select Tip % </div>
+            <div>5% 10% </div>
+            <div>15% 25% </div>
+            <div>50% Custom </div>
+            <div>Number of People </div>
+            <div>Tip Amount / person </div>
+            <div>Total / person Reset</div>
           </div>
         </div>
+      </div>
+      <div class="attribution mt-4">
+        Challenge by{" "}
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+          Frontend Mentor
+        </a>
+        . Coded by <a href="#">Your Name Here</a>.
       </div>
     </div>
   );
