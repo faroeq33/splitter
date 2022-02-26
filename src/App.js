@@ -4,13 +4,13 @@ function App() {
   return (
     <div className="App bg-lightergrayishcyan text-gray-600">
       <div className="container mx-auto max-w-[375px] px-4">
-        <ul className="uppercase text-2xl text-verydarkcyan font-extrabold opacity-75">
+        <ul className="uppercase text-2xl text-verydarkcyan font-extrabold opacity-75 py-8">
           <li>s p l i</li>
           <li>t t e r</li>
         </ul>
-        <div className="flex bg-white  rounded-2xl p-4">
+        <div className="flex bg-white rounded-2xl p-4">
           <div className="grid grid-cols w-full">
-            <div className="text-left w-full text-">Bill </div>
+            <div className="text-left w-full font-bold">Bill</div>
             <div className="p-3 text-2xl bg-gray-100 rounded-lg text-right text-verydarkcyan font-bold w-full">
               <span className="text-gray-400 text-left">$ </span>
               <span className="text-right">142.55</span>
