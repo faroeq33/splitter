@@ -1,3 +1,4 @@
+import InputLabel from "./components/InputLabel";
 import "./App.css";
 
 function App() {
@@ -10,16 +11,16 @@ function App() {
         </ul>
         <div className="flex bg-white rounded-2xl p-4">
           <div className="grid grid-cols w-full">
-            <div className="text-left w-full font-bold">Bill</div>
+            <InputLabel>Bill</InputLabel>
             <div className="p-3 text-2xl bg-gray-100 rounded-lg text-right text-verydarkcyan font-bold w-full">
               <span className="text-gray-400 text-left">$ </span>
               <span className="text-right">142.55</span>
             </div>
-            <div>Select Tip % </div>
+            <InputLabel>Select Tip % </InputLabel>
             <div>5% 10% </div>
             <div>15% 25% </div>
             <div>50% Custom </div>
-            <div>Number of People </div>
+            <InputLabel>Number of People </InputLabel>
             <div>Tip Amount / person </div>
             <div>Total / person Reset</div>
           </div>
