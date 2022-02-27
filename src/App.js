@@ -1,25 +1,33 @@
 import InputLabel from "./components/InputLabel";
 import "./App.css";
+import PercentInput from "./components/PercentInput";
 
 function App() {
+  const PercentInputDefault = `bg-verydarkcyan rounded-md p-2 text-3xl font-bold text-white focus:bg-darkergrayishcyan focus:text-verydarkcyan `;
+
   return (
-    <div className="App bg-lightergrayishcyan text-gray-600">
+    <div className="text-gray-600 App bg-lightergrayishcyan">
       <div className="container mx-auto max-w-[375px] px-4">
-        <ul className="uppercase text-2xl text-verydarkcyan font-extrabold opacity-75 py-8">
+        <ul className="py-8 text-2xl font-extrabold uppercase opacity-75 text-verydarkcyan">
           <li>s p l i</li>
           <li>t t e r</li>
         </ul>
-        <div className="flex bg-white rounded-2xl p-4">
-          <div className="grid grid-cols w-full">
+        <div className="flex p-4 bg-white rounded-2xl">
+          <div className="grid w-full grid-cols">
             <InputLabel>Bill</InputLabel>
-            <div className="p-3 text-2xl bg-gray-100 rounded-lg text-right text-verydarkcyan font-bold w-full">
-              <span className="text-gray-400 text-left">$ </span>
+            <div className="w-full p-3 text-2xl font-bold text-right bg-gray-100 rounded-lg text-verydarkcyan">
+              <span className="text-left text-gray-400">$ </span>
               <span className="text-right">142.55</span>
             </div>
             <InputLabel>Select Tip % </InputLabel>
-            <div>5% 10% </div>
-            <div>15% 25% </div>
-            <div>50% Custom </div>
+            <div className="grid grid-cols-2 gap-4">
+              <PercentInput>5%</PercentInput>
+              <PercentInput>10% </PercentInput>
+              <PercentInput>15%</PercentInput>
+              <PercentInput>25% </PercentInput>
+              <PercentInput>50%</PercentInput>
+              <div className="p-4 text-2xl font-bold bg-slate-100">Custom </div>
+            </div>
             <InputLabel>Number of People </InputLabel>
             <div>Tip Amount / person </div>
             <div>Total / person Reset</div>
