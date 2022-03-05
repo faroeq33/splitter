@@ -13,8 +13,13 @@ function App() {
 
   return (
     <div className="text-gray-600 App bg-lightergrayishcyan">
-      {JSON.stringify(receipt)}
-      <div className="container mx-auto max-w-[375px] px-4">
+      {/*
+      <div className="text-red-500 bg-black">
+        {JSON.stringify(receipt, null, 2)}
+      </div>
+      */}
+
+      <div className="container px-4 mx-auto">
         <ul className="py-10 text-2xl font-extrabold uppercase opacity-75 text-verydarkcyan">
           <li>s p l i</li>
           <li>t t e r</li>
