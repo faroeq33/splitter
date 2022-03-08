@@ -7,17 +7,42 @@ import OutputField from "./components/OutputField";
 import personIcon from "./images/icon-person.svg";
 
 import { useInputChange } from "./components/useInputChange";
+import { type } from "@testing-library/user-event/dist/type";
 
 function App() {
   const [receipt, handleReceiptChange] = useInputChange();
 
+  /*
+  const staticBill = {
+    bill: 123,
+    customPercentage: 3,
+    numberOfPeople: 5,
+  };
+  */
+
+  function getTotal({ bill, numberOfPeople, customPercentage }) {
+    // turn entries into an integer so you can calculate the values
+    customPercentage = +customPercentage;
+    bill = +bill;
+    numberOfPeople = +numberOfPeople;
+
+    const tipAmount = (bill / 100) * customPercentage;
+
+    const rawCalc = (bill + tipAmount) / numberOfPeople;
+
+    // Return amount rounded to 2 decimals
+    return rawCalc.toFixed(2);
+  }
+
+  function getTipAmount({ bill, customPercentage }) {
+    return (bill / 100) * customPercentage;
+  }
+
   return (
     <div className="text-gray-600 App bg-lightergrayishcyan">
-      {/*
       <div className="text-red-500 bg-black">
         {JSON.stringify(receipt, null, 2)}
       </div>
-      */}
 
       <div className="container px-4 mx-auto">
         <ul className="py-10 text-2xl font-extrabold uppercase opacity-75 text-verydarkcyan">
@@ -45,7 +70,15 @@ function App() {
               <PercentInput>25% </PercentInput>
               <PercentInput>50%</PercentInput>
               <div className="p-2 text-2xl font-bold text-gray-500 rounded-md bg-slate-100">
-                Custom
+                <input
+                  type="number"
+                  name="customPercentage"
+                  placeholder="Custom"
+                  className="w-full text-center bg-inherit"
+                  onChange={handleReceiptChange}
+                  min="1"
+                  max="100"
+                />
               </div>
             </div>
 
@@ -69,7 +102,7 @@ function App() {
                 Tip Amount <br></br>
                 <span className="text-sm text-gray-400">/ person</span>
               </ReceiptRow>
-              <ReceiptNum>${receipt.tipPerPerson | 0}</ReceiptNum>
+              <ReceiptNum>{getTipAmount(receipt)}</ReceiptNum>
               <ReceiptRow>
                 <div>Total </div>
                 <span className="text-gray-400">/ person</span>
@@ -77,7 +110,7 @@ function App() {
 
               <ReceiptNum>
                 {/* receipt divided by numberOfPeople otherwhise calculate nothing  */}
-                ${(receipt.bill / receipt.numberOfPeople) | ""}
+                ${getTotal(receipt)}
               </ReceiptNum>
 
               <button className="w-full col-span-2 p-2 pt-4 text-xl font-bold uppercase rounded-md text-verydarkcyan bg-darkgrayishcyan">
