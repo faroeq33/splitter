@@ -7,7 +7,6 @@ import OutputField from "./components/OutputField";
 import personIcon from "./images/icon-person.svg";
 
 import { useInputChange } from "./components/useInputChange";
-import { type } from "@testing-library/user-event/dist/type";
 
 function App() {
   const [receipt, handleReceiptChange] = useInputChange();
