@@ -25,6 +25,7 @@ function App() {
 
   function getTipAmount({ customPercentage, bill, numberOfPeople }) {
     const rawTipAmount = (bill / 100) * customPercentage / numberOfPeople
+    if (isNaN(rawTipAmount)) return 0
     return rawTipAmount.toFixed(2);
   }
 
@@ -39,6 +40,7 @@ function App() {
     const rawCalc = (bill + tipAmount) / numberOfPeople;
 
     // Return amount rounded to 2 decimals
+    if (isNaN(rawCalc)) return 0
     return rawCalc.toFixed(2);
   }
 
@@ -48,8 +50,8 @@ function App() {
 
   return (
     <div className="text-gray-600 App bg-lightergrayishcyan">
-      <div className="text-red-500 bg-black">
-        {JSON.stringify(receipt, null, 2)}
+      <div className="p-4 text-red-500 bg-black">
+        <pre> {JSON.stringify(receipt, null, 2)} </pre>
       </div>
 
       <div className="container px-4 mx-auto">
@@ -119,9 +121,9 @@ function App() {
 
               <button
                 className="w-full col-span-2 p-2 pt-4 text-xl font-bold uppercase rounded-md text-verydarkcyan bg-darkgrayishcyan"
-                onClick={(e) => {
-                  handleReset(e);
-                }}
+                // dont change resetButton name this is dependant on resetting the form
+                name="resetButton"
+                onClick={handleReceiptChange}
               >
                 reset
               </button>
