@@ -9,7 +9,11 @@ import personIcon from "./images/icon-person.svg";
 import { useInputChange } from "./components/useInputChange";
 
 function App() {
-  const [receipt, handleReceiptChange] = useInputChange();
+  const [receipt, handleReceiptChange] = useInputChange({
+    bill: 123,
+    customPercentage: 3,
+    numberOfPeople: 5,
+  });
 
   /*
   const staticBill = {
@@ -18,6 +22,11 @@ function App() {
     numberOfPeople: 5,
   };
   */
+
+  function getTipAmount({ customPercentage, bill, numberOfPeople }) {
+    const rawTipAmount = (bill / 100) * customPercentage / numberOfPeople
+    return rawTipAmount.toFixed(2);
+  }
 
   function getTotal({ bill, numberOfPeople, customPercentage }) {
     // turn entries into an integer so you can calculate the values
@@ -33,8 +42,8 @@ function App() {
     return rawCalc.toFixed(2);
   }
 
-  function getTipAmount({ bill, customPercentage }) {
-    return (bill / 100) * customPercentage;
+  function handleReset(e) {
+    console.log(e.target.name);
   }
 
   return (
@@ -101,18 +110,19 @@ function App() {
                 Tip Amount <br></br>
                 <span className="text-sm text-gray-400">/ person</span>
               </ReceiptRow>
-              <ReceiptNum>{getTipAmount(receipt)}</ReceiptNum>
+              <OutputField>{getTipAmount(receipt)}</OutputField>
               <ReceiptRow>
                 <div>Total </div>
                 <span className="text-gray-400">/ person</span>
               </ReceiptRow>
+              <OutputField>{getTotal(receipt)}</OutputField>
 
-              <ReceiptNum>
-                {/* receipt divided by numberOfPeople otherwhise calculate nothing  */}
-                ${getTotal(receipt)}
-              </ReceiptNum>
-
-              <button className="w-full col-span-2 p-2 pt-4 text-xl font-bold uppercase rounded-md text-verydarkcyan bg-darkgrayishcyan">
+              <button
+                className="w-full col-span-2 p-2 pt-4 text-xl font-bold uppercase rounded-md text-verydarkcyan bg-darkgrayishcyan"
+                onClick={(e) => {
+                  handleReset(e);
+                }}
+              >
                 reset
               </button>
             </div>

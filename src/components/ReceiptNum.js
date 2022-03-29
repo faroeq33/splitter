@@ -1,7 +1,3 @@
-export default function ReceiptNum(props) {
-  return (
-    <span className="text-3xl font-bold text-darkgrayishcyan">
-      {props.children}
-    </span>
-  );
+export default function ReceiptNum({ name }) {
+  return <input className="text-3xl font-bold text-darkgrayishcyan" value="" />;
 }
