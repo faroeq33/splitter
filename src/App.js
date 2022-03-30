@@ -93,7 +93,7 @@ function App() {
             </div>
 
             <InputLabel>Number of People </InputLabel>
-            <OutputField cName="grid grid-cols-2">
+            <OutputField cName="grid grid-cols-2 ">
               <div className="hidden p-2">
                 <img className="" src={personIcon} alt="" />
               </div>
@@ -112,12 +112,12 @@ function App() {
                 Tip Amount <br></br>
                 <span className="text-sm text-gray-400">/ person</span>
               </ReceiptRow>
-              <OutputField>{getTipAmount(receipt)}</OutputField>
+              <OutputField cName="text-darkgrayishcyan">{getTipAmount(receipt)}</OutputField>
               <ReceiptRow>
                 <div>Total </div>
                 <span className="text-gray-400">/ person</span>
               </ReceiptRow>
-              <OutputField>{getTotal(receipt)}</OutputField>
+              <OutputField cName="text-darkgrayishcyan">{getTotal(receipt)}</OutputField>
 
               <button
                 className="w-full col-span-2 p-2 pt-4 text-xl font-bold uppercase rounded-md text-verydarkcyan bg-darkgrayishcyan"
