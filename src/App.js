@@ -131,7 +131,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div class="attribution mt-4">
+      <div className="mt-4 attribution">
         Challenge by{" "}
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
           Frontend Mentor
