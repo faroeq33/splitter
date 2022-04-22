@@ -17,8 +17,6 @@ function App() {
   });
   const [list, setList] = useState({});
 
-
-
   /*
   const staticBill = {
     bill: 123,
@@ -28,8 +26,8 @@ function App() {
   */
 
   function getTipAmount({ customPercentage, bill, numberOfPeople }) {
-    const rawTipAmount = (bill / 100) * customPercentage / numberOfPeople
-    if (isNaN(rawTipAmount)) return 0
+    const rawTipAmount = ((bill / 100) * customPercentage) / numberOfPeople;
+    if (isNaN(rawTipAmount)) return 0;
     return rawTipAmount.toFixed(2);
   }
 
@@ -44,8 +42,12 @@ function App() {
     const rawCalc = (bill + tipAmount) / numberOfPeople;
 
     // Return amount rounded to 2 decimals
-    if (isNaN(rawCalc)) return 0
+    if (isNaN(rawCalc)) return 0;
     return rawCalc.toFixed(2);
+  }
+
+  function setPercentage(number) {
+    setList({ ...receipt, customPercentage: number });
   }
 
   function handleReset(e) {
@@ -54,7 +56,12 @@ function App() {
 
   return (
     <div className="text-gray-600 App bg-lightergrayishcyan">
-      <button className="w-full p-4 bg-red" onClick={() =>handleReceiptChange({...receipt, "customPercentage":5})}>Testbutton</button>
+      <button
+        className="w-full p-4 bg-red"
+        onClick={() => handleReceiptChange({ ...receipt, customPercentage: 5 })}
+      >
+        Testbutton
+      </button>
       {/* <button className="w-full p-4 bg-red" onClick={() =>setList({"thing":"newWord"})}>Testbutton</button> */}
 
       <div className="p-4 text-red-500 bg-black">
@@ -82,11 +89,11 @@ function App() {
 
             <InputLabel>Select Tip % </InputLabel>
             <div className="grid grid-cols-2 gap-4">
-              <PercentInput onClick={()=>{}}>5%</PercentInput>
-              <PercentInput>10% </PercentInput>
-              <PercentInput>15%</PercentInput>
-              <PercentInput>25% </PercentInput>
-              <PercentInput>50%</PercentInput>
+              <PercentInput onClick={ () => setPercentage(5) }>5% </PercentInput>
+              <PercentInput onClick={ () => setPercentage(10) }>10% </PercentInput>
+              <PercentInput onClick={ () => setPercentage(15) }>15% </PercentInput>
+              <PercentInput onClick={ () => setPercentage(25) }>25% </PercentInput>
+              <PercentInput onClick={ () => setPercentage(50) }>50% </PercentInput>
               <div className="p-2 text-2xl font-bold text-gray-500 rounded-md bg-slate-100">
                 <input
                   type="number"
@@ -120,12 +127,16 @@ function App() {
                 Tip Amount <br></br>
                 <span className="text-sm text-gray-400">/ person</span>
               </ReceiptRow>
-              <OutputField cName="text-darkgrayishcyan">{getTipAmount(receipt)}</OutputField>
+              <OutputField cName="text-darkgrayishcyan">
+                {getTipAmount(receipt)}
+              </OutputField>
               <ReceiptRow>
                 <div>Total </div>
                 <span className="text-gray-400">/ person</span>
               </ReceiptRow>
-              <OutputField cName="text-darkgrayishcyan">{getTotal(receipt)}</OutputField>
+              <OutputField cName="text-darkgrayishcyan">
+                {getTotal(receipt)}
+              </OutputField>
 
               <button
                 className="w-full col-span-2 p-2 pt-4 text-xl font-bold uppercase rounded-md text-verydarkcyan bg-darkgrayishcyan"
