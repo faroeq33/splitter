@@ -7,6 +7,7 @@ import OutputField from "./components/OutputField";
 import personIcon from "./images/icon-person.svg";
 
 import { useInputChange } from "./components/useInputChange";
+import { useState } from "react";
 
 function App() {
   const [receipt, handleReceiptChange] = useInputChange({
@@ -14,6 +15,9 @@ function App() {
     customPercentage: 3,
     numberOfPeople: 5,
   });
+  const [list, setList] = useState({});
+
+
 
   /*
   const staticBill = {
@@ -50,8 +54,12 @@ function App() {
 
   return (
     <div className="text-gray-600 App bg-lightergrayishcyan">
+      <button className="w-full p-4 bg-red" onClick={() =>handleReceiptChange({...receipt, "customPercentage":5})}>Testbutton</button>
+      {/* <button className="w-full p-4 bg-red" onClick={() =>setList({"thing":"newWord"})}>Testbutton</button> */}
+
       <div className="p-4 text-red-500 bg-black">
         <pre> {JSON.stringify(receipt, null, 2)} </pre>
+        <pre> {JSON.stringify(list, null, 2)} </pre>
       </div>
 
       <div className="container px-4 mx-auto">
@@ -74,7 +82,7 @@ function App() {
 
             <InputLabel>Select Tip % </InputLabel>
             <div className="grid grid-cols-2 gap-4">
-              <PercentInput>5%</PercentInput>
+              <PercentInput onClick={()=>{}}>5%</PercentInput>
               <PercentInput>10% </PercentInput>
               <PercentInput>15%</PercentInput>
               <PercentInput>25% </PercentInput>

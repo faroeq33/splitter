@@ -5,8 +5,9 @@ export const useInputChange = (startingValue) => {
 
   const handleInputChange = (e) => {
     // I am aware of the if statements being a codesmell. But I don't have a better solution yet
-    if (e.currentTarget.name == "resetButton") {
+    if (typeof(e.currentTarget) == 'undefined') {return }
 
+    if (e.currentTarget.name == "resetButton") {
       // empties the the form
       setInput({});
       return [input, handleInputChange];
