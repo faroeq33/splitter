@@ -55,19 +55,11 @@ function App() {
   }
 
   return (
-    <div className="text-gray-600 App bg-lightergrayishcyan">
-      <button
-        className="w-full p-4 bg-red"
-        onClick={() => handleReceiptChange({ ...receipt, customPercentage: 5 })}
-      >
-        Testbutton
-      </button>
-      {/* <button className="w-full p-4 bg-red" onClick={() =>setList({"thing":"newWord"})}>Testbutton</button> */}
-
-      <div className="p-4 text-red-500 bg-black">
+    <div className="h-screen text-gray-600 App bg-lightergrayishcyan">
+      {/* <div className="p-4 text-red-500 bg-black">
         <pre> {JSON.stringify(receipt, null, 2)} </pre>
         <pre> {JSON.stringify(list, null, 2)} </pre>
-      </div>
+      </div> */}
 
       <div className="container px-4 mx-auto">
         <ul className="py-10 text-2xl font-extrabold uppercase opacity-75 text-verydarkcyan">
@@ -89,11 +81,19 @@ function App() {
 
             <InputLabel>Select Tip % </InputLabel>
             <div className="grid grid-cols-2 gap-4">
-              <PercentInput onClick={ () => setPercentage(5) }>5% </PercentInput>
-              <PercentInput onClick={ () => setPercentage(10) }>10% </PercentInput>
-              <PercentInput onClick={ () => setPercentage(15) }>15% </PercentInput>
-              <PercentInput onClick={ () => setPercentage(25) }>25% </PercentInput>
-              <PercentInput onClick={ () => setPercentage(50) }>50% </PercentInput>
+              <PercentInput onClick={() => setPercentage(5)}>5% </PercentInput>
+              <PercentInput onClick={() => setPercentage(10)}>
+                10%{" "}
+              </PercentInput>
+              <PercentInput onClick={() => setPercentage(15)}>
+                15%{" "}
+              </PercentInput>
+              <PercentInput onClick={() => setPercentage(25)}>
+                25%{" "}
+              </PercentInput>
+              <PercentInput onClick={() => setPercentage(50)}>
+                50%{" "}
+              </PercentInput>
               <div className="p-2 text-2xl font-bold text-gray-500 rounded-md bg-slate-100">
                 <input
                   type="number"
@@ -138,25 +138,25 @@ function App() {
                 {getTotal(receipt)}
               </OutputField>
 
-              <button
+              {/* <button
                 className="w-full col-span-2 p-2 pt-4 text-xl font-bold uppercase rounded-md text-verydarkcyan bg-darkgrayishcyan"
                 // dont change resetButton name this is dependant on resetting the form
                 name="resetButton"
                 onClick={handleReceiptChange}
               >
                 reset
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
       </div>
-      <div className="mt-4 attribution">
+      {/* <div className="mt-4 attribution">
         Challenge by{" "}
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
           Frontend Mentor
         </a>
         . Coded by <a href="#">Your Name Here</a>.
-      </div>
+      </div> */}
     </div>
   );
 }
