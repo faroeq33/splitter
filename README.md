@@ -1,4 +1,4 @@
-# Description
+# Splitter
 Me practicing my css & js skill by building a functional "Split the bill" app
 
 
